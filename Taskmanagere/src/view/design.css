@@ -1,0 +1,49 @@
+.mainFxmlClass {
+}
+
+.bg-form{
+    -fx-background-color: linear-gradient(to bottom, #FF7878, #FF0000);
+}
+.white-form{
+    -fx-background-color: linear-gradient(to right, #FE5F75, #FC9842);
+    -fx-background-radius: 10px;
+}
+
+.login-btn{
+    -fx-background-color: linear-gradient(to bottom right, #FF7878, #FF0000);
+    -fx-background-radius: 8px;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-background-radius: 20px;
+
+}
+
+.login-btn:hover{
+    -fx-background-color: linear-gradient(to bottom right, #FF7878, #FFFFFF);
+    -fx-border-top-right-radius: 0px;
+    -fx-border-bottom-left-radius: 0px;
+}
+
+.textfield{
+    -fx-background-color: #fffafa;
+    -fx-border-color: #e11f1f;
+    -fx-border-width: .2px;
+    -fx-background-radius: 20px;
+}
+
+.textfield:focused{
+    -fx-background-color: #2C3E50;
+    -fx-border-color: linear-gradient(to bottom right, #3498db, #2980b9);
+    -fx-border-width: 1px;
+}
+
+.hyperlink{
+    -fx-background-color: transparent;
+    -fx-underline: false;
+    -fx-text-fill: #fffafa;
+}
+
+.hyperlink:hover{
+    -fx-text-fill: #e11a1a;
+}
