@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.mobileTaskController">
+   <children>
+      <AnchorPane fx:id="main_mob_form" prefHeight="600.0" prefWidth="350.0">
+         <children>
+            <BorderPane layoutY="-5.0" prefHeight="612.0" prefWidth="350.0">
+               <center>
+                  <AnchorPane prefHeight="578.0" prefWidth="370.0" styleClass="center-form" stylesheets="@planDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="home_form_mob" prefHeight="571.0" prefWidth="350.0" style="-fx-background-color: white;" styleClass="center-form" stylesheets="@planDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="plan_btn_mob" layoutX="3.0" layoutY="58.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btns" text="📋" textFill="SNOW">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="fin_btn_mob" layoutX="3.0" layoutY="98.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btns" text="📋✅" textFill="SNOW">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="5.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="home_btn_mob" layoutX="3.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btns" stylesheets="@planDesign.css" text="🏠" textFill="SNOW">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="10.0" />
+                                 </font>
+                              </Button>
+                              <AnchorPane layoutX="58.0" layoutY="7.0" prefHeight="134.0" prefWidth="286.0" style="-fx-background-color: E9E9E9;" styleClass="card" stylesheets="@planDesign.css">
+                                 <children>
+                                    <Circle layoutX="45.0" layoutY="55.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" />
+                                    <Text fill="WHITE" layoutX="20.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Icon" />
+                                    <Label layoutX="98.0" layoutY="29.0" text="Username: ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="98.0" layoutY="64.0" text="Date Registered:">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="home_username_mob" layoutX="205.0" layoutY="30.0" text="User">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="home_dateRegistered_mob" layoutX="205.0" layoutY="65.0" text="User">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="logout_btn_mob" layoutX="4.0" layoutY="528.0" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@planDesign.css" text="Logout" textFill="WHITE" />
+                              <AnchorPane layoutX="2.0" layoutY="161.0" prefHeight="110.0" prefWidth="160.0" style="-fx-background-color: E9E9E9;" styleClass="card" stylesheets="@planDesign.css">
+                                 <children>
+                                    <Text layoutX="7.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="📝" wrappingWidth="42.666664123535156">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Text>
+                                    <Label layoutX="24.0" layoutY="84.0" text="Number of  Active Tasks">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="home_NAP_mob" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="117.0" layoutY="8.0" prefHeight="30.0" prefWidth="36.0" text="0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="188.0" layoutY="160.0" prefHeight="110.0" prefWidth="160.0" style="-fx-background-color: E9E9E9;" styleClass="card" stylesheets="@planDesign.css">
+                                 <children>
+                                    <Text layoutX="8.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="🚩">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Text>
+                                    <Label layoutX="47.0" layoutY="87.0" text="Finished Tasks">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="home_FP_mob" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="116.0" layoutY="8.0" prefHeight="30.0" prefWidth="36.0" text="0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="myPlans_form_mob" prefHeight="571.0" prefWidth="350.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="plan_btn_mob1" layoutX="3.0" layoutY="58.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btn" text="📋" textFill="SNOW">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="fin_btn_mob1" layoutX="3.0" layoutY="98.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btn" text="📋✅" textFill="SNOW">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="home_btn_mob1" layoutX="3.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btn" stylesheets="@planDesign.css" text="🏠" textFill="SNOW">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="logout_btn_mob1" layoutX="4.0" layoutY="528.0" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@planDesign.css" text="Logout" />
+                              <AnchorPane layoutX="57.0" layoutY="9.0" prefHeight="226.0" prefWidth="286.0" styleClass="border" stylesheets="@planDesign.css">
+                                 <children>
+                                    <Label layoutX="15.0" layoutY="10.0" text="Task:" textFill="WHITE" />
+                                    <TextArea fx:id="myPlans_plan_mob" layoutX="48.0" layoutY="6.0" prefHeight="75.0" prefWidth="227.0" />
+                                    <Label layoutX="8.0" layoutY="99.0" text="Start Date:" textFill="WHITE" />
+                                    <DatePicker fx:id="myPlans_startDate_mob" layoutX="66.0" layoutY="93.0" prefHeight="25.0" prefWidth="174.0" />
+                                    <Label layoutX="9.0" layoutY="136.0" text="End Date:" textFill="WHITE" />
+                                    <DatePicker fx:id="myPlans_endDate_mob" layoutX="66.0" layoutY="132.0" prefHeight="25.0" prefWidth="174.0" />
+                                    <Button fx:id="myPlans_addBtn_mob" layoutX="11.0" layoutY="188.0" mnemonicParsing="false" onAction="#myTaskAddBtnMob" styleClass="btn" stylesheets="@planDesign.css" text="➕">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="myPlans_updateBtn_mob" layoutX="58.0" layoutY="188.0" mnemonicParsing="false" onAction="#myTaskUpdateBtnMob" styleClass="btn" stylesheets="@planDesign.css" text="🔄">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="myPlans_clearBtn_mob" layoutX="181.0" layoutY="188.0" mnemonicParsing="false" onAction="#myTaskClearBtn" styleClass="btn" stylesheets="@planDesign.css" text="🆑">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="myPlans_deleteBtn_mob" layoutX="231.0" layoutY="188.0" mnemonicParsing="false" onAction="#myTaskDeleteBtnMob" styleClass="btn" stylesheets="@planDesign.css" text="🗑❌">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <TableView fx:id="myPlans_tableView_mob" layoutX="2.0" layoutY="253.0" onMouseClicked="#myTaskSelectData" prefHeight="265.0" prefWidth="342.0" tableMenuButtonVisible="true">
+                                 <columns>
+                                    <TableColumn fx:id="myPlans_col_plan_mob" prefWidth="248.0" text=" Task" />
+                                    <TableColumn fx:id="myPlans_col_startDate_mob" prefWidth="184.0" text="Start Date" />
+                                    <TableColumn fx:id="myPlans_col_endDate_mob" minWidth="8.0" prefWidth="124.0" text="End Date" />
+                                    <TableColumn fx:id="myPlans_col_dateCreated_mob" minWidth="8.0" prefWidth="141.0" text="Date Created" />
+                                    <TableColumn fx:id="myPlans_col_status_mob" minWidth="8.0" prefWidth="105.0" text="Status" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="finishedPlans_form_mob" prefHeight="571.0" prefWidth="350.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="plan_btn_mob2" layoutX="3.0" layoutY="58.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btn" text="📋" textFill="SNOW">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="fin_btn_mob2" layoutX="3.0" layoutY="98.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btn" text="📋✅" textFill="SNOW">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="home_btn_mob2" layoutX="3.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btn" stylesheets="@planDesign.css" text="🏠" textFill="SNOW">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="logout_btn_mob2" layoutX="3.0" layoutY="528.0" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@planDesign.css" text="Logout" />
+                              <TableView fx:id="finishedPlans_tableVIew_mob" layoutX="56.0" layoutY="8.0" onMouseClicked="#finishedPlanSelectData" prefHeight="195.0" prefWidth="289.0">
+                                 <columns>
+                                    <TableColumn fx:id="finishedPlans_col_planID_mob" prefWidth="33.5" text="ID" />
+                                    <TableColumn fx:id="finishedPlans_col_plan_mob" prefWidth="66.0" text="Task" />
+                                    <TableColumn fx:id="finishedPlans_col_startDate_mob" prefWidth="74.5" text="Start Date" />
+                                    <TableColumn fx:id="finishedPlans_col_endDate_mob" prefWidth="62.5" text="End Date" />
+                                    <TableColumn fx:id="finishedPlans_col_status_mob" prefWidth="49.5" text="Status" />
+                                 </columns>
+                              </TableView>
+                              <AnchorPane layoutX="8.0" layoutY="326.0" prefHeight="151.0" prefWidth="341.0" styleClass="border" stylesheets="@planDesign.css">
+                                 <children>
+                                    <Label layoutX="55.0" layoutY="57.0" text="Status: " textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="finishedPlans_status_mob" layoutX="113.0" layoutY="54.0" prefHeight="30.0" prefWidth="150.0" promptText="Choose....." />
+                                    <Label layoutX="51.0" layoutY="20.0" text="Task ID:" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="finishedPlans_planID_mob" layoutX="114.0" layoutY="19.0" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: white;" />
+                                    <Button fx:id="finishedPlans_updateBtn_mob" layoutX="92.0" layoutY="109.0" mnemonicParsing="false" onAction="#finishedTaskUpdateBtn" prefHeight="38.0" prefWidth="160.0" styleClass="btn" stylesheets="@planDesign.css" text="Update" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+               <top>
+                  <AnchorPane prefHeight="22.0" prefWidth="350.0" styleClass="bg-form" stylesheets="@design.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="-4.0" layoutY="7.0" prefHeight="36.0" prefWidth="355.0" style="-fx-background-color: E9E9E9;" styleClass="top-form" stylesheets="@planDesign.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="7.0">
+                           <children>
+                              <Text fx:id="page_label" layoutX="6.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="249.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome," wrappingWidth="64.8046875">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="username_mob" layoutX="307.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="33.0" prefWidth="350.0" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text fx:id="page_label_mob" fill="SNOW" layoutX="2.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="SNOW" layoutX="272.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome," wrappingWidth="38.5546875">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="8.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="SNOW" layoutX="315.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
