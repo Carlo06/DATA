@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -12,7 +14,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLDocumentController">
    <children>
-      <AnchorPane prefHeight="611.0" prefWidth="821.0">
+      <AnchorPane prefHeight="611.0" prefWidth="837.0">
          <children>
             <BorderPane layoutY="-3.0" prefHeight="614.0" prefWidth="854.0">
                <center>
@@ -20,9 +22,14 @@
                      <children>
                         <AnchorPane fx:id="main_mob_form" prefHeight="600.0" prefWidth="314.0" styleClass="bg-form" stylesheets="@design.css">
                            <children>
-                              <AnchorPane fx:id="login_form" layoutX="249.0" layoutY="14.0" prefHeight="600.0" prefWidth="364.0" styleClass="white-form" stylesheets="@design.css">
+                              <AnchorPane fx:id="login_form" layoutX="249.0" layoutY="14.0" prefHeight="600.0" prefWidth="364.0" stylesheets="@design.css">
                                  <children>
-                                    <Label layoutX="116.0" layoutY="185.0" text="Login User" textFill="SNOW">
+                                    <ImageView fitHeight="314.0" fitWidth="377.0" layoutX="6.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../pics/Logo.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="97.0" layoutY="140.0" text="Login User" textFill="#0a0a0a">
                                        <font>
                                           <Font name="Bauhaus 93" size="30.0" />
                                        </font>
@@ -35,19 +42,24 @@
                                     <Button fx:id="switchToWeb" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" onAction="#SwitchSize" prefHeight="30.0" prefWidth="160.0" styleClass="login-btn" stylesheets="@design.css" text="Switch to Web Size" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="signup_form" layoutX="152.0" prefHeight="614.0" prefWidth="462.0" styleClass="white-form" stylesheets="@design.css" visible="false">
+                              <AnchorPane fx:id="signup_form" layoutX="152.0" prefHeight="614.0" prefWidth="462.0" stylesheets="@design.css" visible="false">
                                  <children>
-                                    <Label layoutX="224.0" layoutY="166.0" text="nTask" textFill="SNOW">
+                                    <ImageView fitHeight="314.0" fitWidth="377.0" layoutX="124.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../pics/Logo.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="229.0" layoutY="54.0" text="Register">
                                        <font>
                                           <Font name="Bauhaus 93" size="30.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="reg_username" layoutX="148.0" layoutY="200.0" onAction="#registerAccount" prefHeight="35.0" prefWidth="250.0" promptText="Username" styleClass="textfield" stylesheets="@design.css" />
-                                    <PasswordField fx:id="reg_password" layoutX="148.0" layoutY="300.0" onAction="#registerAccount" prefHeight="35.0" prefWidth="250.0" promptText="Password" styleClass="textfield" stylesheets="@design.css" />
-                                    <Button fx:id="reg_signupBtn" layoutX="146.0" layoutY="419.0" mnemonicParsing="false" onAction="#registerAccount" prefHeight="40.0" prefWidth="253.0" styleClass="login-btn" stylesheets="@design.css" text="SignUp" />
-                                    <Hyperlink fx:id="alreadyhaveAccount" layoutX="190.0" layoutY="490.0" onAction="#switchForm" stylesheets="@design.css" text="Already have an Account?" />
-                                    <TextField fx:id="reg_email" layoutX="148.0" layoutY="249.0" onAction="#registerAccount" prefHeight="35.0" prefWidth="250.0" promptText="Email" styleClass="textfield" stylesheets="@design.css" />
-                                    <PasswordField fx:id="reg_confirm_password" layoutX="148.0" layoutY="346.0" onAction="#registerAccount" prefHeight="35.0" prefWidth="250.0" promptText="Confirm Password" styleClass="textfield" stylesheets="@design.css" />
+                                    <TextField fx:id="reg_username" layoutX="147.0" layoutY="302.0" onAction="#registerAccount" prefHeight="35.0" prefWidth="250.0" promptText="Username" styleClass="textfield" stylesheets="@design.css" />
+                                    <PasswordField fx:id="reg_password" layoutX="149.0" layoutY="409.0" onAction="#registerAccount" prefHeight="35.0" prefWidth="250.0" promptText="Password" styleClass="textfield" stylesheets="@design.css" />
+                                    <Button fx:id="reg_signupBtn" layoutX="151.0" layoutY="514.0" mnemonicParsing="false" onAction="#registerAccount" prefHeight="40.0" prefWidth="253.0" styleClass="login-btn" stylesheets="@design.css" text="SignUp" />
+                                    <Hyperlink fx:id="alreadyhaveAccount" layoutX="198.0" layoutY="561.0" onAction="#switchForm" stylesheets="@design.css" text="Already have an Account?" />
+                                    <TextField fx:id="reg_email" layoutX="148.0" layoutY="357.0" onAction="#registerAccount" prefHeight="35.0" prefWidth="250.0" promptText="Email" styleClass="textfield" stylesheets="@design.css" />
+                                    <PasswordField fx:id="reg_confirm_password" layoutX="149.0" layoutY="460.0" onAction="#registerAccount" prefHeight="35.0" prefWidth="250.0" promptText="Confirm Password" styleClass="textfield" stylesheets="@design.css" />
                                  </children>
                               </AnchorPane>
                            </children>

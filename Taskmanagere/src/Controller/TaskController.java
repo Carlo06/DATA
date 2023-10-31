@@ -4,12 +4,15 @@
  */
 package Controller;
 
+import java.io.Serializable;
+import java.util.Stack;
 import java.net.URL;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,6 +20,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Stack;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -153,12 +158,23 @@ public class TaskController implements Initializable {
     @FXML
     private Label username;
 
+    @FXML
+    private Button redoBtn;
+
+    @FXML
+    private Button undoBtn;
+
     private Connection connect;
     private PreparedStatement prepare;
     private ResultSet result;
     private Statement statement;
 
     private Alert alert;
+
+    ObservableList<userTask> TaskList = FXCollections.observableArrayList();
+
+    Stack<userTask> undoStack = new Stack<>();
+    Stack<userTask> redoStack = new Stack<>();
 
     public void homeDisplayUsername() {
 
@@ -232,7 +248,6 @@ public class TaskController implements Initializable {
     public void myTasksAddBtn() {
 
         connect = database.connectDB();
-
         try {
 
             if (myPlans_plan.getText().isEmpty() || myPlans_startDate.getValue() == null
@@ -281,6 +296,17 @@ public class TaskController implements Initializable {
 
                         myTaskShowData();
                         myTaskClearBtn();
+
+                        //save the current state for possible undo action
+                        undoStack.push(new userTask(taskID, myPlans_plan.getText()));
+           
+                        //clear the redo stack, as a new action is performed
+                        redoStack.clear();
+
+                        // Enable the "Undo" button when a new task is inserted
+                        undoBtn.setDisable(false);
+                        // Disable the "Redo" button when a new action is performed
+                        redoBtn.setDisable(true);
                     }
 
                 }
@@ -603,15 +629,12 @@ public class TaskController implements Initializable {
     private ObservableList<taskData> finishedTaskListData;
 
     public void finishedPlansShowData() {
-
         finishedTaskListData = finishedTaskDataList();
-
         finishedPlans_col_planID.setCellValueFactory(new PropertyValueFactory<>("taskID"));
         finishedPlans_col_plan.setCellValueFactory(new PropertyValueFactory<>("task"));
         finishedPlans_col_startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         finishedPlans_col_endDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
         finishedPlans_col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
-
         finishedPlans_tableVIew.setItems(finishedTaskListData);
     }
 
@@ -691,6 +714,117 @@ public class TaskController implements Initializable {
         }
     }
 
+    public void undo() throws SQLException {
+        if (!undoStack.isEmpty()) {
+            userTask task = undoStack.pop();
+            redoStack.push(task);
+    
+            // Get the task ID from the userTask object
+            int taskID = task.getTaskID();
+    
+            // Delete the task from the database using the task ID
+            String deleteQuery = "DELETE FROM mytask WHERE id = ?";
+            try (Connection connect = database.connectDB();
+                 PreparedStatement prepare = connect.prepareStatement(deleteQuery)) {
+                prepare.setInt(1, taskID);
+                prepare.executeUpdate();
+            }
+    
+            // Remove the task from TaskList (assuming TaskList is your data structure)
+            TaskList.removeIf(tasks -> tasks.getTaskName().equals(task.getTaskName()));
+    
+            // Refresh the table view
+            myPlans_tableView.refresh();
+    
+            // Disable the "Undo" button when the undoStack is empty
+            undoBtn.setDisable(undoStack.isEmpty());
+    
+            // Enable the "Redo" button when an undo is performed
+            redoBtn.setDisable(false);
+    
+            myTaskShowData();
+        }
+    }
+    
+    // Helper method to get task ID from the database based on task name
+    private int getTaskIDFromDatabase(String taskName) throws SQLException {
+        int taskID = 0;
+        String query = "SELECT id FROM mytask WHERE task = ?";
+        try (Connection connect = database.connectDB();
+             PreparedStatement prepare = connect.prepareStatement(query)) {
+            prepare.setString(1, taskName);
+            ResultSet resultSet = prepare.executeQuery();
+            if (resultSet.next()) {
+                taskID = resultSet.getInt("id");
+            }
+        }
+        return taskID;
+    }
+    
+    
+
+
+    public void redo() throws SQLException {
+        if (!redoStack.isEmpty()) {
+            userTask task = redoStack.pop();
+            undoStack.push(task);
+    
+            // Check if the dates are not null
+            LocalDate startDate = myPlans_startDate.getValue();
+            LocalDate endDate = myPlans_endDate.getValue();
+    
+            if (startDate != null && endDate != null) {
+                // Insert the task back into the database
+                String insertQuery = "INSERT INTO mytask (task, startDate, endDate, dateCreated, status, planner)"
+                        + "VALUES(?,?,?,?,?,?)";
+    
+                try (Connection connect = database.connectDB();
+                    PreparedStatement prepare = connect.prepareStatement(insertQuery)) {
+                    prepare.setString(1, myPlans_plan.getText());
+                    prepare.setString(2, startDate.toString()); // Convert LocalDate to String
+                    prepare.setString(3, endDate.toString());   // Convert LocalDate to String
+    
+                    Date date = new Date();
+                    java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                    prepare.setString(4, String.valueOf(sqlDate));
+                    prepare.setString(5, "Not Finish");
+                    prepare.setString(6, username.getText());
+                    prepare.executeUpdate();
+    
+                    // Add the task back to TaskList (assuming TaskList is your data structure)
+                    TaskList.add(task);
+    
+                    // Refresh the table view
+                    myPlans_tableView.refresh();
+                } catch (SQLException e) {
+                    // Handle SQLException
+                    e.printStackTrace();
+                }
+            } else {
+                // Handle case where startDate or endDate is null
+                System.out.println("Error: Invalid date values");
+            }
+    
+            // Enable the "Undo" button when a redo is performed
+            undoBtn.setDisable(false);
+    
+            // Disable the "Redo" button when the redoStack is empty
+            redoBtn.setDisable(redoStack.isEmpty());
+
+            myTaskShowData();
+        }
+    }
+    
+    
+
+
+
+
+
+
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -706,6 +840,9 @@ public class TaskController implements Initializable {
         finishedTaskListStatus();
 
         finishedPlansShowData();
+
+        undoBtn.setDisable(true);
+        redoBtn.setDisable(true);
 
     }
 

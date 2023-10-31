@@ -11,7 +11,7 @@ public class TaskManagerSystem extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/FXMLDocumentMobileSize.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/FXMLDocument.fxml"));
             Scene scene = new Scene(root);
             // Disables resizing of window
             stage.setResizable(false);

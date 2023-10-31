@@ -23,82 +23,82 @@
                <center>
                   <AnchorPane prefHeight="578.0" prefWidth="370.0" styleClass="center-form" stylesheets="@planDesign.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="home_form_mob" prefHeight="571.0" prefWidth="350.0" styleClass="center-form" stylesheets="@planDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="home_form_mob" prefHeight="571.0" prefWidth="350.0" style="-fx-background-color: white;" styleClass="center-form" stylesheets="@planDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button fx:id="plan_btn_mob" layoutX="3.0" layoutY="58.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btn" text="📋" textFill="SNOW">
+                              <Button fx:id="plan_btn_mob" layoutX="3.0" layoutY="58.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btns" text="📋" textFill="SNOW">
                                  <font>
                                     <Font name="Bauhaus 93" size="10.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="fin_btn_mob" layoutX="3.0" layoutY="98.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btn" text="📋✅" textFill="SNOW">
+                              <Button fx:id="fin_btn_mob" layoutX="3.0" layoutY="98.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btns" text="📋✅" textFill="SNOW">
                                  <font>
                                     <Font name="Bauhaus 93" size="5.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="home_btn_mob" layoutX="3.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btn" stylesheets="@planDesign.css" text="🏠" textFill="SNOW">
+                              <Button fx:id="home_btn_mob" layoutX="3.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="50.0" styleClass="nav-btns" stylesheets="@planDesign.css" text="🏠" textFill="SNOW">
                                  <font>
                                     <Font name="Bauhaus 93" size="10.0" />
                                  </font>
                               </Button>
-                              <AnchorPane layoutX="58.0" layoutY="7.0" prefHeight="134.0" prefWidth="286.0" styleClass="card" stylesheets="@planDesign.css">
+                              <AnchorPane layoutX="58.0" layoutY="7.0" prefHeight="134.0" prefWidth="286.0" style="-fx-background-color: E9E9E9;" styleClass="card" stylesheets="@planDesign.css">
                                  <children>
                                     <Circle layoutX="45.0" layoutY="55.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" />
                                     <Text fill="WHITE" layoutX="20.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Icon" />
-                                    <Label layoutX="98.0" layoutY="29.0" text="Username: " textFill="#fcfcfc">
+                                    <Label layoutX="98.0" layoutY="29.0" text="Username: ">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="98.0" layoutY="64.0" text="Date Registered:" textFill="#fcfcfc">
+                                    <Label layoutX="98.0" layoutY="64.0" text="Date Registered:">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="home_username_mob" layoutX="205.0" layoutY="30.0" text="User" textFill="#fcfcfc">
+                                    <Label fx:id="home_username_mob" layoutX="205.0" layoutY="30.0" text="User">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="home_dateRegistered_mob" layoutX="205.0" layoutY="65.0" text="User" textFill="#fcfcfc">
+                                    <Label fx:id="home_dateRegistered_mob" layoutX="205.0" layoutY="65.0" text="User">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <Button fx:id="logout_btn_mob" layoutX="4.0" layoutY="528.0" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@planDesign.css" text="Logout" />
-                              <AnchorPane layoutX="2.0" layoutY="161.0" prefHeight="110.0" prefWidth="160.0" styleClass="card" stylesheets="@planDesign.css">
+                              <Button fx:id="logout_btn_mob" layoutX="4.0" layoutY="528.0" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@planDesign.css" text="Logout" textFill="WHITE" />
+                              <AnchorPane layoutX="2.0" layoutY="161.0" prefHeight="110.0" prefWidth="160.0" style="-fx-background-color: E9E9E9;" styleClass="card" stylesheets="@planDesign.css">
                                  <children>
-                                    <Text fill="SNOW" layoutX="7.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="📝" wrappingWidth="42.666664123535156">
+                                    <Text layoutX="7.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="📝" wrappingWidth="42.666664123535156">
                                        <font>
                                           <Font size="30.0" />
                                        </font>
                                     </Text>
-                                    <Label layoutX="24.0" layoutY="84.0" text="Number of  Active Tasks" textFill="WHITE">
+                                    <Label layoutX="24.0" layoutY="84.0" text="Number of  Active Tasks">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="home_NAP_mob" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="117.0" layoutY="8.0" prefHeight="30.0" prefWidth="36.0" text="0" textFill="WHITE">
+                                    <Label fx:id="home_NAP_mob" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="117.0" layoutY="8.0" prefHeight="30.0" prefWidth="36.0" text="0">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="188.0" layoutY="160.0" prefHeight="110.0" prefWidth="160.0" styleClass="card" stylesheets="@planDesign.css">
+                              <AnchorPane layoutX="188.0" layoutY="160.0" prefHeight="110.0" prefWidth="160.0" style="-fx-background-color: E9E9E9;" styleClass="card" stylesheets="@planDesign.css">
                                  <children>
-                                    <Text fill="SNOW" layoutX="8.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="🚩">
+                                    <Text layoutX="8.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="🚩">
                                        <font>
                                           <Font size="30.0" />
                                        </font>
                                     </Text>
-                                    <Label layoutX="47.0" layoutY="87.0" text="Finished Tasks" textFill="WHITE">
+                                    <Label layoutX="47.0" layoutY="87.0" text="Finished Tasks">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="home_FP_mob" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="116.0" layoutY="8.0" prefHeight="30.0" prefWidth="36.0" text="0" textFill="WHITE">
+                                    <Label fx:id="home_FP_mob" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="116.0" layoutY="8.0" prefHeight="30.0" prefWidth="36.0" text="0">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -221,19 +221,19 @@
                <top>
                   <AnchorPane prefHeight="22.0" prefWidth="350.0" styleClass="bg-form" stylesheets="@design.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="-4.0" layoutY="7.0" prefHeight="36.0" prefWidth="355.0" styleClass="top-form" stylesheets="@planDesign.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="7.0">
+                        <AnchorPane layoutX="-4.0" layoutY="7.0" prefHeight="36.0" prefWidth="355.0" style="-fx-background-color: E9E9E9;" styleClass="top-form" stylesheets="@planDesign.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="7.0">
                            <children>
-                              <Text fx:id="page_label" fill="SNOW" layoutX="6.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME">
+                              <Text fx:id="page_label" layoutX="6.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME">
                                  <font>
                                     <Font name="Bauhaus 93" size="18.0" />
                                  </font>
                               </Text>
-                              <Text fill="SNOW" layoutX="249.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome," wrappingWidth="64.8046875">
+                              <Text layoutX="249.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome," wrappingWidth="64.8046875">
                                  <font>
                                     <Font name="Bauhaus 93" size="12.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="username_mob" fill="SNOW" layoutX="307.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
+                              <Text fx:id="username_mob" layoutX="307.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
                                  <font>
                                     <Font name="Bauhaus 93" size="15.0" />
                                  </font>

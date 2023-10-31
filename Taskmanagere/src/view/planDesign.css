@@ -3,18 +3,25 @@
 }
 
 .top-form{
-    -fx-background-color: linear-gradient(to bottom right, #2C3E50, #3498db);
+    -fx-background-color:  #b8d0e4;
 }
 
 .nav-form{
-    -fx-background-color: #34495e;
-    -fx-border-color: linear-gradient(to bottom right, #3498db, #2980b9);
+    -fx-background-color: linear-gradient(to bottom right, #3454F5, #b8d0e4);
+    
 }
 
 .nav-btn{
     -fx-background-color: transparent;
-    -fx-border-color: #3498db;
-    -fx-text-fill: #fff;
+    -fx-text-fill: Black;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.nav-btns{
+    -fx-background-color: transparent;
+    -fx-border-color: Black;
+    -fx-text-fill: Black;
     -fx-font-size: 14px;
     -fx-cursor: hand;
 }
@@ -25,16 +32,16 @@
 }
 
 .center-form{
-    -fx-background-color: #34495e;
+    -fx-background-color: linear-gradient(to bottom right, #3454F5, #b8d0e4);
 }
 
 .card{
-    -fx-background-color: linear-gradient(to bottom right, #2C3E50, #3498db);
+    -fx-background-color: linear-gradient(Gray, Black);
     -fx-background-radius: 8px;
 }
 
 .logout{
-    -fx-background-color: linear-gradient(to bottom right, #3498db, #2980b9);
+    -fx-background-color: linear-gradient(to bottom right, Gray, Black);
     -fx-background-radius: 50px;
     -fx-cursor: hand;
 }
@@ -44,14 +51,14 @@
 }
 
 .border{
-    -fx-border-color: #3498db;
+    -fx-border-color: linear-gradient(Gray, Black);
     -fx-border-radius: 8px;
     -fx-border-width: 2px;
 }
 
 .table-view{
+    -fx-border-color: linear-gradient(Gray, Black);
     -fx-background-color: transparent;
-    -fx-border-color: #3498db;
     -fx-border-width: 2px;
     -fx-border-radius: 8px;
     -fx-padding: 0;
@@ -77,7 +84,7 @@
 }
 
 .btn{
-    -fx-background-color: linear-gradient(to bottom right, #3498db, #2980b9);
+    -fx-background-color: linear-gradient(to bottom right, Gray, Black);
     -fx-background-radius: 5px;
     -fx-font-size: 13px;
     -fx-text-fill: #fff;

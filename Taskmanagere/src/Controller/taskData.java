@@ -35,7 +35,7 @@ public class taskData {
         return taskID;
     }
     
-    public String getTask(){
+    public  String getTask(){
         return task;
     }
     public Date getStartDate(){
@@ -52,6 +52,9 @@ public class taskData {
     }
     public String getPlanner(){
         return planner;
+    }
+
+    public static void removeIf(Object object) {
     }
 
    
